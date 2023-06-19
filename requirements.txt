@@ -36,6 +36,6 @@ social-auth-app-django
 social-auth-core
 sqlparse
 typing_extensions
-tzdata3
+tzdata
 uritemplate
 urllib3

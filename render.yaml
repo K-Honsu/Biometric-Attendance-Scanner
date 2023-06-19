@@ -5,6 +5,7 @@ env:
 deploy:
   - type: web
     name: biometric-api
-    command: python manage.py runserver 0.0.0.0:$PORT
+    command: gunicorn biometrics.wsgi:application --bind 0.0.0.0:$PORT
+
     routes:
       - path: /

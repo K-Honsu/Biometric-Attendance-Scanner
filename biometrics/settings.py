@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["biometric-oqav.onrender.com", "127.0.0.0", "localhost"]
+ALLOWED_HOSTS = ["biometric-oqav.onrender.com", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -95,13 +95,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME'),
-        'USER':config('DB_USER'),
-        'PASSWORD':config('DB_PASSWORD'),
-        'HOST':config('DB_HOST'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
     }
 }
-
-
 
 
 # Password validation
@@ -148,7 +146,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    
+
 }
 
 SIMPLE_JWT = {

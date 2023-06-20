@@ -1,9 +1,12 @@
+import uuid
 from django.db import models
 from .enums import *
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
+
 class Student(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     age = models.IntegerField()
     address = models.CharField(max_length=450)
@@ -14,12 +17,13 @@ class Student(models.Model):
     contact_number = models.CharField(max_length=15)
     parent_email = models.EmailField(unique=True)
     gender = models.CharField(choices=Gender.choices, max_length=6)
-    # fingerprint = 
-    
+    # # fingerprint =
+    pass
+
     def __str__(self):
         return f'Student is {self.user}'
-    
-    
+
+
 class Teacher(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(unique=True)
@@ -28,7 +32,8 @@ class Teacher(models.Model):
     gender = models.CharField(choices=Gender.choices, max_length=6)
     grade = models.CharField(choices=Grade.choices, max_length=6)
     subject = models.CharField(choices=Subject.choices, max_length=20)
-    
-    
+
+
 class Attendance(models.Model):
+    # student = models.OneToOneField(Student, on_delete=models.CASCADE)
     pass

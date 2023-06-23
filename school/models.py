@@ -35,5 +35,5 @@ class Teacher(models.Model):
 
 class Attendance(models.Model):
     attendance = models.CharField(
-        choices=Attendance.choices, max_length=6, default='absent')
+        choices=Attendance.choices, max_length=10, default='absent')
     student = models.ForeignKey(Student, on_delete=models.CASCADE)

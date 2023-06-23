@@ -17,8 +17,7 @@ class Student(models.Model):
     contact_number = models.CharField(max_length=15)
     parent_email = models.EmailField(unique=True)
     gender = models.CharField(choices=Gender.choices, max_length=6)
-    # # fingerprint =
-    pass
+    # fingerprint =
 
     def __str__(self):
         return f'Student is {self.user}'
@@ -35,5 +34,6 @@ class Teacher(models.Model):
 
 
 class Attendance(models.Model):
-    # student = models.OneToOneField(Student, on_delete=models.CASCADE)
-    pass
+    attendance = models.CharField(
+        choices=Attendance.choices, max_length=6, default='absent')
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
